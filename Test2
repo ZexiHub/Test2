@@ -104,10 +104,8 @@ local Tabs = {
     WindowTab = Window:Tab({ Title = gradient("CONFIGURATION", Color3.fromHex("#ffffff"), Color3.fromHex("#636363")), Icon = "settings", Desc = "Manage window settings and file configurations." }),
     CreateThemeTab = Window:Tab({ Title = gradient("THEMES", Color3.fromHex("#ffffff"), Color3.fromHex("#636363")), Icon = "palette", Desc = "Design and apply custom themes." }),
 }
--- === DUPE WEAPONS TAB (PREMIUM LOCKED) ===
-Tabs.MainTab:Section({ 
-    Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) 
-})
+-- DUPE WEAPONS TAB (Premium Locked)
+Tabs.MainTab:Section({ Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) })
 
 Tabs.MainTab:Paragraph({
     Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
@@ -123,14 +121,15 @@ Tabs.MainTab:Button({
     Callback = function()
         WindUI:Notify({
             Title = "Robux Purchase",
-            Content = "Opening Robux purchase... (499 R$)",
+            Content = "Redirecting to Robux purchase... (499 R$)",
             Icon = "shopping-cart",
             Duration = 4
         })
+        -- Simule l'achat (tu peux connecter à un vrai système plus tard)
         task.wait(1)
         WindUI:Notify({
-            Title = "Not Linked",
-            Content = "Robux purchase not connected yet.",
+            Title = "Not Implemented",
+            Content = "Robux purchase not linked yet.",
             Icon = "x-circle",
             Duration = 3
         })
@@ -142,9 +141,17 @@ Tabs.MainTab:Button({
     Variant = "Secondary",
     Icon = "bitcoin",
     Callback = function()
-        setclipboard("https://your-crypto-link.com/kaneki-dupe")
         WindUI:Notify({
-            Title = "Crypto Link",
+            Title = "Crypto Payment",
+            Content = "Opening crypto payment link...",
+            Icon = "external-link",
+            Duration = 4
+        })
+        task.wait(1)
+        -- Remplace par ton lien de paiement crypto
+        setclipboard("https://your-crypto-link.com/pay/kaneki-dupe")
+        WindUI:Notify({
+            Title = "Link Copied!",
             Content = "Payment link copied to clipboard!",
             Icon = "check-circle",
             Duration = 3
