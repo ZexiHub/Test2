@@ -109,22 +109,31 @@ Tabs.MainTab:Section({
     Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) 
 })
 
--- PREMIUM LOCKED (FOND VERT)
-Tabs.MainTab:Section({
+Tabs.MainTab:Paragraph({
     Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
-    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", 
-        Color3.fromHex("#00ffff"), Color3.fromHex("#00ff88")),
+    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", Color3.fromHex("#ffffff"), Color3.fromHex("#cccccc")),
     Image = "lock",
-    Color = "Black"  -- Fond vert automatique
+    Color = "Purple"
 })
 
--- BOUTONS
 Tabs.MainTab:Button({
     Title = gradient("Unlock with Robux - 499 R$", Color3.fromHex("#00ff00"), Color3.fromHex("#00cc00")),
     Variant = "Primary",
     Icon = "gem",
     Callback = function()
-        WindUI:Notify({ Title = "Robux", Content = "Not linked yet.", Icon = "x-circle", Duration = 3 })
+        WindUI:Notify({
+            Title = "Robux Purchase",
+            Content = "Opening Robux purchase... (499 R$)",
+            Icon = "shopping-cart",
+            Duration = 4
+        })
+        task.wait(1)
+        WindUI:Notify({
+            Title = "Not Linked",
+            Content = "Robux purchase not connected yet.",
+            Icon = "x-circle",
+            Duration = 3
+        })
     end
 })
 
@@ -133,13 +142,17 @@ Tabs.MainTab:Button({
     Variant = "Secondary",
     Icon = "bitcoin",
     Callback = function()
-        setclipboard("https://your-crypto-link.com")
-        WindUI:Notify({ Title = "Crypto", Content = "Link copied!", Icon = "check-circle", Duration = 3 })
+        setclipboard("https://your-crypto-link.com/kaneki-dupe")
+        WindUI:Notify({
+            Title = "Crypto Link",
+            Content = "Payment link copied to clipboard!",
+            Icon = "check-circle",
+            Duration = 3
+        })
     end
 })
 
--- PREMIUM BENEFITS (FOND VERT)
-Tabs.MainTab:Section({
+Tabs.MainTab:Paragraph({
     Title = gradient("Premium Benefits:", Color3.fromHex("#00ffaa"), Color3.fromHex("#00aa77")),
     Desc = 
         "• Duplicate any weapon\n"..
@@ -147,7 +160,7 @@ Tabs.MainTab:Section({
         "• No detection risk\n"..
         "• Instant processing",
     Image = "star",
-    Color = "Black"  -- Fond vert
+    Color = "Purple"
 })
 Tabs.CharacterTab:Section({Title = gradient("JumpPower", Color3.fromHex("#001aff"), Color3.fromHex("#020524"))})
 
