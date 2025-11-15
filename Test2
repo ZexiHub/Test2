@@ -109,16 +109,13 @@ Tabs.MainTab:Section({
     Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) 
 })
 
--- PREMIUM LOCKED (FOND VERT + DÉGRADÉ CYAN → VERT)
 Tabs.MainTab:Paragraph({
     Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
-    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", 
-        Color3.fromHex("#00ffff"), Color3.fromHex("#00ff88")),
+    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", Color3.fromHex("#ffffff"), Color3.fromHex("#cccccc")),
     Image = "lock",
-    Color = "Black"  -- Fond vert automatique
+    Color = "White"
 })
 
--- BOUTON ROBUX
 Tabs.MainTab:Button({
     Title = gradient("Unlock with Robux - 499 R$", Color3.fromHex("#00ff00"), Color3.fromHex("#00cc00")),
     Variant = "Primary",
@@ -140,7 +137,6 @@ Tabs.MainTab:Button({
     end
 })
 
--- BOUTON CRYPTO
 Tabs.MainTab:Button({
     Title = gradient("Unlock with Crypto - $8", Color3.fromHex("#ff8800"), Color3.fromHex("#cc5500")),
     Variant = "Secondary",
@@ -156,7 +152,6 @@ Tabs.MainTab:Button({
     end
 })
 
--- PREMIUM BENEFITS
 Tabs.MainTab:Paragraph({
     Title = gradient("Premium Benefits:", Color3.fromHex("#00ffaa"), Color3.fromHex("#00aa77")),
     Desc = 
@@ -166,9 +161,6 @@ Tabs.MainTab:Paragraph({
         "• Instant processing",
     Image = "star",
     Color = "White"
-}).Locked = state
-        updateCharacter()
-    end
 })
 
 Tabs.CharacterTab:Section({Title = gradient("JumpPower", Color3.fromHex("#001aff"), Color3.fromHex("#020524"))})
