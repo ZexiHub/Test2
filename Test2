@@ -113,7 +113,7 @@ Tabs.MainTab:Paragraph({
     Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
     Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", Color3.fromHex("#ffffff"), Color3.fromHex("#cccccc")),
     Image = "lock",
-    Color = "Purple"
+    Color = "White"
 })
 
 Tabs.MainTab:Button({
@@ -160,7 +160,7 @@ Tabs.MainTab:Paragraph({
         "• No detection risk\n"..
         "• Instant processing",
     Image = "star",
-    Color = "Purple"
+    Color = "White"
 })
 Tabs.CharacterTab:Section({Title = gradient("JumpPower", Color3.fromHex("#001aff"), Color3.fromHex("#020524"))})
 
