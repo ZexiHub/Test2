@@ -104,16 +104,21 @@ local Tabs = {
     WindowTab = Window:Tab({ Title = gradient("CONFIGURATION", Color3.fromHex("#ffffff"), Color3.fromHex("#636363")), Icon = "settings", Desc = "Manage window settings and file configurations." }),
     CreateThemeTab = Window:Tab({ Title = gradient("THEMES", Color3.fromHex("#ffffff"), Color3.fromHex("#636363")), Icon = "palette", Desc = "Design and apply custom themes." }),
 }
--- DUPE WEAPONS TAB (Premium Locked)
-Tabs.MainTab:Section({ Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) })
-
-Tabs.MainTab:Paragraph({
-    Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
-    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", Color3.fromHex("#ffffff"), Color3.fromHex("#cccccc")),
-    Image = "lock",
-    Color = "White"
+-- === DUPE WEAPONS TAB (PREMIUM LOCKED) ===
+Tabs.MainTab:Section({ 
+    Title = gradient("Weapon Duplication", Color3.fromHex("#ffcc00"), Color3.fromHex("#ff6600")) 
 })
 
+-- PREMIUM LOCKED (FOND VERT + DÉGRADÉ CYAN → VERT)
+Tabs.MainTab:Paragraph({
+    Title = gradient("Premium Feature Locked", Color3.fromHex("#ff3333"), Color3.fromHex("#990000")),
+    Desc = gradient("Unlock Weapon Duplication\nDuplicate any weapon instantly!\nMultiply your inventory value.", 
+        Color3.fromHex("#00ffff"), Color3.fromHex("#00ff88")),
+    Image = "lock",
+    Color = "Black"  -- Fond vert automatique
+})
+
+-- BOUTON ROBUX
 Tabs.MainTab:Button({
     Title = gradient("Unlock with Robux - 499 R$", Color3.fromHex("#00ff00"), Color3.fromHex("#00cc00")),
     Variant = "Primary",
@@ -121,37 +126,29 @@ Tabs.MainTab:Button({
     Callback = function()
         WindUI:Notify({
             Title = "Robux Purchase",
-            Content = "Redirecting to Robux purchase... (499 R$)",
+            Content = "Opening Robux purchase... (499 R$)",
             Icon = "shopping-cart",
             Duration = 4
         })
-        -- Simule l'achat (tu peux connecter à un vrai système plus tard)
         task.wait(1)
         WindUI:Notify({
-            Title = "Not Implemented",
-            Content = "Robux purchase not linked yet.",
+            Title = "Not Linked",
+            Content = "Robux purchase not connected yet.",
             Icon = "x-circle",
             Duration = 3
         })
     end
 })
 
+-- BOUTON CRYPTO
 Tabs.MainTab:Button({
     Title = gradient("Unlock with Crypto - $8", Color3.fromHex("#ff8800"), Color3.fromHex("#cc5500")),
     Variant = "Secondary",
     Icon = "bitcoin",
     Callback = function()
+        setclipboard("https://your-crypto-link.com/kaneki-dupe")
         WindUI:Notify({
-            Title = "Crypto Payment",
-            Content = "Opening crypto payment link...",
-            Icon = "external-link",
-            Duration = 4
-        })
-        task.wait(1)
-        -- Remplace par ton lien de paiement crypto
-        setclipboard("https://your-crypto-link.com/pay/kaneki-dupe")
-        WindUI:Notify({
-            Title = "Link Copied!",
+            Title = "Crypto Link",
             Content = "Payment link copied to clipboard!",
             Icon = "check-circle",
             Duration = 3
@@ -159,6 +156,7 @@ Tabs.MainTab:Button({
     end
 })
 
+-- PREMIUM BENEFITS
 Tabs.MainTab:Paragraph({
     Title = gradient("Premium Benefits:", Color3.fromHex("#00ffaa"), Color3.fromHex("#00aa77")),
     Desc = 
@@ -168,53 +166,7 @@ Tabs.MainTab:Paragraph({
         "• Instant processing",
     Image = "star",
     Color = "White"
-})
--- Character
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
-
-local CharacterSettings = {
-    WalkSpeed = {Value = 16, Default = 16, Locked = false},
-    JumpPower = {Value = 50, Default = 50, Locked = false}
-}
-
-local function updateCharacter()
-    local character = LocalPlayer.Character
-    local humanoid = character:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        if not CharacterSettings.WalkSpeed.Locked then
-            humanoid.WalkSpeed = CharacterSettings.WalkSpeed.Value
-        end
-        if not CharacterSettings.JumpPower.Locked then
-            humanoid.JumpPower = CharacterSettings.JumpPower.Value
-        end
-    end
-end
-Tabs.CharacterTab:Section({Title = gradient("Walkspeed", Color3.fromHex("#ff0000"), Color3.fromHex("#300000"))})
-
-Tabs.CharacterTab:Slider({
-    Title = "Walkspeed",
-    Value = {Min = 0, Max = 200, Default = 16},
-    Callback = function(value)
-        CharacterSettings.WalkSpeed.Value = value
-        updateCharacter()
-    end
-})
-
-Tabs.CharacterTab:Button({
-    Title = "Reset walkspeed",
-    Callback = function()
-        CharacterSettings.WalkSpeed.Value = CharacterSettings.WalkSpeed.Default
-        updateCharacter()
-    end
-})
-
-Tabs.CharacterTab:Toggle({
-    Title = "Block walkspeed",
-    Default = false,
-    Callback = function(state)
-        CharacterSettings.WalkSpeed.Locked = state
+}).Locked = state
         updateCharacter()
     end
 })
